@@ -2,19 +2,25 @@ import { createContext, useState } from 'react';
 
 const CartContext = createContext({
   addedMeals: [],
-  modalIsOpen: false
+  modalIsOpen: false,
+  toggleModal: () => {}
 });
 
 export const CartContextProvider = (props) => {
   const [addedMealsState, setAddedMealsState] = useState();
-  const [modalIsOpenState, setModalIsOpenState] = useState();
+  const [modalIsOpenState, setModalIsOpenState] = useState(false);
 
   // HANDLERS
-  
+  const toggleModalHandler = () => {
+    setModalIsOpenState(prevState => {
+      return !prevState;
+    })
+  }
 
   const context = {
     addedMeals: addedMealsState,
-    modalIsOpen: modalIsOpenState
+    modalIsOpen: modalIsOpenState,
+    toggleModal: toggleModalHandler
   }
 
   return <CartContext.Provider value={context}>

@@ -10,7 +10,7 @@ const HeaderCartButton = () => {
   const cartCtx = useContext(CartContext);
 
   const onClickHandler = () => {
-    cartCtx.modalIsOpen = true;
+    cartCtx.toggleModal();
   };
 
   return (
