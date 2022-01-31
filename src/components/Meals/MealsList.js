@@ -1,4 +1,4 @@
-import MealItem from './MealItem';
+import MealItem from './MealItem/MealItem';
 import Card from '../UI/Card';
 
 import css from './MealsList.module.css';

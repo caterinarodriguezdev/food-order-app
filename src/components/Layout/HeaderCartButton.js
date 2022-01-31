@@ -1,9 +1,20 @@
+import { useContext } from 'react';
+
 import CartIcon from '../Cart/CartIcon';
+
+import CartContext from '../../store/cart-context';
+
 import css from './HeaderCartButton.module.css';
 
 const HeaderCartButton = () => {
+  const cartCtx = useContext(CartContext);
+
+  const onClickHandler = () => {
+    cartCtx.modalIsOpen = true;
+  };
+
   return (
-    <button className={css.button}>
+    <button className={css.button} onClick={onClickHandler}>
       <span className={css.icon}>
         <CartIcon/>
       </span>
