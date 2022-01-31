@@ -1,19 +1,12 @@
+import MealsSummary from './MealsSummary';
+import MealsList from './MealsList';
 
-
-const Meals = (props) => {
+const Meals = () => {
   return (
     <>
-      <ul>
-        {props.list.map(item => 
-          (
-            <MealItem
-              name={item.name}
-              price={item.price}            
-              />
-          )
-        )}
-      </ul>
-    </>
+      <MealsSummary/>
+      <MealsList/>
+    </>    
   );
 }
 
