@@ -10,14 +10,13 @@ const MealsList = () => {
     <section className={css.meals}>
       <Card>
         <ul>
-          {data.map(item => 
-            (
-                <MealItem
-                  id={item.id}
-                  name={item.name}
-                  price={item.price}
-                  description={item.description}            
-                  />
+          {data.map(item => (
+            <MealItem
+              key={item.id}
+              name={item.name}
+              price={item.price}
+              description={item.description}            
+              />
             )
           )}     
         </ul>

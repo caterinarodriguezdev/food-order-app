@@ -5,7 +5,13 @@ import Input from '../UI/Input';
 const MealItemForm = () => {
     return (
       <form className={css.form}>
-        <Input label="Amount" type="number"/>
+        <Input label="Amount" input={{
+          id: "amount",
+          type: "number",
+          min: '1',
+          max: '5',
+          defaultValue: '1'
+        }}/>
         <button>+ Add</button>
       </form>
     );
