@@ -3,26 +3,30 @@ import Card from './Card';
 import css from './Modal.module.css';
 
       
-const Backdrop = (props) => { return <div className={css.backdrop}>{props.children}</div>};
+const Backdrop = (props) => { 
+  return <div onClick={props.onCloseModal} className={css.backdrop}/>
+};
 
-const Modal = (props) => {
+const ModalOverlay = (props) => {
   return (
     <Card>
       <div className={css.modal}>
-        {props.children}
+        <div className={css.content}>
+          {props.children}
+        </div>
       </div>
     </Card>
   );
 }
 
-const RegularModal = () => {
+const Modal = (props) => {
   return (
     <>
       {ReactDOM.createPortal(
-        <Backdrop/>, document.getElementById('backdrop-root')
+        <Backdrop onCloseModal={props.onCloseModal}/>, document.getElementById('backdrop-root')
       )}
       {ReactDOM.createPortal(
-        <Modal/>, document.getElementById('overlay-root')
+        <ModalOverlay>{props.children}</ModalOverlay>, document.getElementById('overlay-root')
       )}
     </>
   );

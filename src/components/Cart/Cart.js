@@ -3,15 +3,15 @@ import { useContext } from 'react';
 import CartContext from '../../store/cart-context';
 
 import CartItem from "./CartItem";
-import RegularModal from "../UI/Modal";
+import Modal from "../UI/Modal";
 
 import css from "./Cart.module.css";
 
-const Cart = () => {
+const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
   let content = '';
-  if (cartCtx.modalIsOpen) {
+  if (props.modalIsOpen) {
     content = (
       <ul className={css["cart-items"]}>
       {cartCtx.addedMeals.map((item) => (
@@ -29,17 +29,20 @@ const Cart = () => {
   }
 
   return (
-    <>
+    <Modal onCloseModal={props.onCloseModal}>
       <header>My Items</header>
-      <RegularModal>
         {content}
-      </RegularModal>
-      <footer className={css.actions}>
-        <span className={css.total}>Total Amount </span>
-        <button>Close</button>
-        <button>Order</button>
+      <footer>
+        <div className={css.total}>
+          <span>Total Amount</span>
+          <span>33€</span>
+        </div>
+        <div className={css.actions}>
+          <button className={css['button--alt']} onClick={props.onCloseModal}>Close</button>
+          <button onClick={props.onOpenModal}>Order</button>
+        </div>
       </footer>
-    </>
+    </Modal>
   );
 };
 

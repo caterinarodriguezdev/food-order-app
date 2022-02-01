@@ -6,11 +6,12 @@ import CartContext from '../../store/cart-context';
 
 import css from './HeaderCartButton.module.css';
 
-const HeaderCartButton = () => {
+const HeaderCartButton = (props) => {
   const cartCtx = useContext(CartContext);
 
   const onClickHandler = () => {
-    cartCtx.toggleModal();
+    props.onOpenModal();
+    // cartCtx.toggleModal();
   };
 
   return (
