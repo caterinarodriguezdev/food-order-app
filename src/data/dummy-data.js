@@ -22,7 +22,7 @@ const DATA = [
     name: 'Burrito Bowl Guacamole',
     description: 'Mexican Rice, black beans, lettuce, pico de gallo, Cheddar cheese, sour cream and Mexican sauce.',
     price: 18.99,
-  },
+  }
 ];
 
 export default DATA;

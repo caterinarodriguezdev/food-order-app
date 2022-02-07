@@ -1,26 +1,42 @@
 import { createContext, useState } from 'react';
 
 const CartContext = createContext({
-  addedMeals: [],
-  modalIsOpen: false,
-  toggleModal: () => {}
+  addedItems: [],
+  totalAmount: 5,
+  addItem: (item) => {},
+  removeItem: (itemId) => {}
 });
 
 export const CartContextProvider = (props) => {
-  const [addedMealsState, setAddedMealsState] = useState();
-  const [modalIsOpenState, setModalIsOpenState] = useState(false);
+  const [items, setItems] = useState();
+  // const [amount, setAmount] = useState();
 
-  // HANDLERS
-  const toggleModalHandler = () => {
-    setModalIsOpenState(prevState => {
-      return !prevState;
-    })
-  }
+  // FUNCTIONS
+  const addItem = (item) => {
+    setItems((prevItems) => {
+      return prevItems.concat(item);
+    });
+    // setAmount((prevAmount) => {
+    //   return prevAmount + item.price;
+    // });
+  };
+
+  const removeItem = (itemId) => {
+    setItems((prevItems) => {
+      return prevItems.filter((item) => {
+        return item.id !== itemId
+      });
+    });
+    // setAmount((prevAmount) => {
+    //   return prevAmount - itemId.price;
+    // });
+  };
 
   const context = {
-    addedMeals: addedMealsState,
-    modalIsOpen: modalIsOpenState,
-    toggleModal: toggleModalHandler
+    addedItems: items,
+    totalAmount: 3,
+    addItem,
+    removeItem
   }
 
   return <CartContext.Provider value={context}>
