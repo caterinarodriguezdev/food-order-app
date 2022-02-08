@@ -22,7 +22,7 @@ const HeaderCartButton = (props) => {
         <CartIcon/>
       </span>
       <span>Your Cart</span>
-      <span className={css.badge}>{cartCtx.totalAmount}</span>
+      <span className={css.badge}>{numItemsAdded}</span>
     </button>
   );
 }

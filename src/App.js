@@ -17,7 +17,7 @@ function App() {
   }
 
   return (
-    <CartContextProvider value={{
+    <CartContextProvider.Provider value={{
       totalAmount: 5,
       addedItems: [],
       addItem: () => {},
@@ -28,7 +28,7 @@ function App() {
       <main>
         <Meals/>
       </main>
-    </CartContextProvider>
+    </CartContextProvider.Provider>
   )}
 
 export default App;

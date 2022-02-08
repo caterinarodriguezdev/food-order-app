@@ -14,7 +14,7 @@ const Cart = (props) => {
   if (props.modalIsOpen) {
     content = (
       <ul className={css["cart-items"]}>
-      {cartCtx.addedMeals.map((item) => (
+      {cartCtx.addedItems.map((item) => (
         <CartItem
           key={item.id}
           name={item.name}

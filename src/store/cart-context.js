@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 
 const CartContext = createContext({
   addedItems: [],
-  totalAmount: 5,
+  totalAmount: 0,
   addItem: (item) => {},
   removeItem: (itemId) => {}
 });
@@ -20,7 +20,6 @@ export const CartContextProvider = (props) => {
     //   return prevAmount + item.price;
     // });
   };
-
   const removeItem = (itemId) => {
     setItems((prevItems) => {
       return prevItems.filter((item) => {
@@ -34,7 +33,7 @@ export const CartContextProvider = (props) => {
 
   const context = {
     addedItems: items,
-    totalAmount: 3,
+    totalAmount: 0,
     addItem,
     removeItem
   }
