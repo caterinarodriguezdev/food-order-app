@@ -6,9 +6,9 @@ const CartItem = (props) => {
       <div>
         <h2>{props.name}</h2>
       </div>
-      <div className={css.summary}>{props.description}</div>
+      {/* <div className={css.summary}>{props.description}</div> */}
       <div className={css.price}>{props.price}</div>
-      <div className={css.amount}></div>
+      <div className={css.amount}>{props.amount}</div>
       <div className={css.actions}>
         <button>-</button>
         <button>+</button>

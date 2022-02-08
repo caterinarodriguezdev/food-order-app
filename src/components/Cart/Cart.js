@@ -11,15 +11,16 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
   let content = '';
-  if (props.modalIsOpen) {
+  if (props.onOpenModal) {
     content = (
       <ul className={css["cart-items"]}>
-      {cartCtx.addedItems.map((item) => (
+      {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
           name={item.name}
           description={item.description}
           price={item.price}
+          amount={item.amount}
         />
       ))}
     </ul>
@@ -35,7 +36,7 @@ const Cart = (props) => {
       <footer>
         <div className={css.total}>
           <span>Total Amount</span>
-          <span>33€</span>
+          <span>{cartCtx.totalAmount.toFixed(2)}</span>
         </div>
         <div className={css.actions}>
           <button className={css['button--alt']} onClick={props.onCloseModal}>Close</button>
