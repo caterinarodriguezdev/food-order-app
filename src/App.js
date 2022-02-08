@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
-import CartContextProvider from './store/cart-context';
+import CartProvider from './store/CartProvider';
 import Cart from './components/Cart/Cart';
 
 function App() {
@@ -17,18 +17,18 @@ function App() {
   }
 
   return (
-    <CartContextProvider.Provider value={{
-      totalAmount: 5,
-      addedItems: [],
+    <CartProvider value={{
+      totalAmount: 0,
+      items: [],
       addItem: () => {},
       removeItem: () => {}
     }}>
-      {modalIsOpen && <Cart modalIsOpen={modalIsOpen} onCloseModal={hideModal} onOpenModal={showModal}/>}
+      {modalIsOpen && <Cart onOpenModal={modalIsOpen} onCloseModal={hideModal}/>}
       <Header onOpenModal={showModal}/>
       <main>
         <Meals/>
       </main>
-    </CartContextProvider.Provider>
+    </CartProvider>
   )}
 
 export default App;

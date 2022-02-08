@@ -39,7 +39,7 @@ const Cart = (props) => {
         </div>
         <div className={css.actions}>
           <button className={css['button--alt']} onClick={props.onCloseModal}>Close</button>
-          <button onClick={props.onOpenModal}>Order</button>
+          <button>Order</button>
         </div>
       </footer>
     </Modal>
