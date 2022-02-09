@@ -1,19 +1,21 @@
 import css from './CartItem.module.css';
 
 const CartItem = (props) => {
+  const price = `${props.price}€`;
   return (
-    <div className={css['cart-item']}>
+    <li className={css['cart-item']}>
       <div>
         <h2>{props.name}</h2>
+        <div className={css.summary}>
+          <span className={css.price}>{price}</span>
+          <span className={css.amount}>x{props.amount}</span>
+        </div>
       </div>
-      {/* <div className={css.summary}>{props.description}</div> */}
-      <div className={css.price}>{props.price}</div>
-      <div className={css.amount}>{props.amount}</div>
       <div className={css.actions}>
-        <button>-</button>
-        <button>+</button>
+        <button onClick={props.onRemove}>-</button>
+        <button onClick={props.onAdd}>+</button>
       </div>
-    </div>
+    </li>
   );
 }
 
