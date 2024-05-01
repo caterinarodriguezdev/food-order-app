@@ -15,7 +15,7 @@ const MealsList = () => {
   useEffect(() => {
 
     const fetchMeals = async () => {
-      const response = await fetch("https://react-food-order-app-8708c-default-rtdb.europe-west1.firebasedatabase.app/meals.json");
+      const response = await fetch("https://662d90c8a7dda1fa378ad9f1.mockapi.io/codebywoman/meals");
       
       // errors check
       if (!response.ok) {
@@ -30,7 +30,7 @@ const MealsList = () => {
       for (const key in responseData) {
         loadedMeals.push({
           id: key,
-          name: responseData[key].name,
+          name: responseData[key].name, 
           price: responseData[key].price,
           description: responseData[key].description
         })
